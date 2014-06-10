@@ -102,7 +102,7 @@ TClonesArray* BaryonResonanceDecayer::Decay(const DecayerInputs_t & inp) const
   //-- Loop over the decay channels (dc) and write down the branching
   //   ratios to be used for selecting a decay channel.
   //   Since a baryon resonance can be created at W < Mres, explicitly
-  //   check and inhibit decay channels for which W > final-state-mass
+  //   check and inhibit decay channels for which W < final-state-mass
   
   double BR[nch], tot_BR = 0;    
   

@@ -102,7 +102,12 @@ double KPhaseSpace::Threshold(void) const
     assert(tgt.HitNucIsSet());
     double Mn   = tgt.HitNucP4Ptr()->M();
     double Mn2  = TMath::Power(Mn,2);
-    double Wmin = (pi.IsQuasiElastic() || pi.IsInverseBetaDecay()) ? 
+
+    //this does not seem to allow W invariant masses below the kNucleon+kPionMass Threshold, but there should be! (p + gamma final state)
+    //double Wmin = (pi.IsQuasiElastic() || pi.IsInverseBetaDecay()) ? 
+    //              kNucleonMass : kNucleonMass+kPionMass;
+
+    double Wmin = (pi.IsQuasiElastic() || pi.IsInverseBetaDecay() || pi.IsResonant()) ? 
                   kNucleonMass : kNucleonMass+kPionMass;
 
     if(xcls.IsCharmEvent()) {
